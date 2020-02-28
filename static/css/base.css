@@ -18,3 +18,7 @@ a {
 .fancy:hover {
     color: yellow;
 }
+
+.authstyle {
+    border: 2px solid black;
+}
