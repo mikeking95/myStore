@@ -1,0 +1,20 @@
+body {
+    background-image: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);
+}
+
+h1 {
+    color: red;
+}
+
+a {
+    color: lightblue;
+}
+
+.preview {
+    height: 300px;
+    width: auto;
+}
+
+.fancy:hover {
+    color: yellow;
+}
