@@ -5,3 +5,6 @@ class HomePageView(TemplateView):
 
 class AboutPageView(TemplateView):
     template_name = 'about.html'
+
+class RecipesPageView(TemplateView):
+    template_name = 'recipes.html'
