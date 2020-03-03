@@ -24,4 +24,7 @@ urlpatterns = [
 
     #Local
     path('', include('pages.urls')),
+    path('books/', include('products.urls')),
+    path('products/', include('products.urls')), #For other models (future)
+
 ]
