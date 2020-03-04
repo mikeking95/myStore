@@ -13,5 +13,12 @@ Goals, Learning targets:
   - Attempt: Write my own CSS / Pages
 
     Added, 03-03-20
-  - Objective: Implement Amazon S3 Uploads for Product Images  (Media files)
-               Test Image Validation, explore further
+  - Objective: Performance Enhancements ( as needed )
+    ** Bottlenecks will reveal themselves in production. Don't fix problems you dont have ;D
+     - Implement Amazon S3 Bucket for images (media)
+     - CDN (s3) for static assets
+     Third Party modules worth exploring further:
+       - easy-thumnails* (multiple image sizes)
+       - django-compressor
+       - django-extensions (This+9000)
+       - check Google's PageSpeed Insights
