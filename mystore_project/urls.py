@@ -28,5 +28,6 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('books/', include('products.urls')),
     path('products/', include('products.urls')), #For other models (future)
+    path('orders/', include('orders.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
