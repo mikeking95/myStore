@@ -1,5 +1,4 @@
-body {
-    /* background-image: linear-gradient(-225deg, #7085B6 0%, #87A7D9 50%, #DEF3F8 100%);*/
+#wrappy {
     background-image: radial-gradient(circle 671.5px at 10% 20%, rgba(244, 219, 106, 1) 59.1%, rgba(102, 99, 102, 1) 82.4%);
 }
 
