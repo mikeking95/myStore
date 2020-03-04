@@ -22,3 +22,12 @@ a {
 .authstyle {
     border: 2px solid black;
 }
+
+.container .heightbox {
+    display: table;
+    width: 100%;
+}
+
+.mycol {
+    display: table-cell;
+}
