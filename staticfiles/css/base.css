@@ -1,0 +1,33 @@
+#wrappy {
+    background-image: radial-gradient(circle 671.5px at 10% 20%, rgba(244, 219, 106, 1) 59.1%, rgba(102, 99, 102, 1) 82.4%);
+}
+
+h1 {
+    color: red;
+}
+
+a {
+    color: lightblue;
+}
+
+.preview {
+    height: 300px;
+    width: auto;
+}
+
+.fancy:hover {
+    color: yellow;
+}
+
+.authstyle {
+    border: 2px solid black;
+}
+
+.container .heightbox {
+    display: table;
+    width: 100%;
+}
+
+.mycol {
+    display: table-cell;
+}
