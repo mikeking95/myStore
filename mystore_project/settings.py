@@ -33,7 +33,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = int(os.environ.get('DEBUG',default=0))
 
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1','.herokuapp.com','.nyntofive.com']
+ALLOWED_HOSTS = ['https://safe-brook-10558.herokuapp.com','localhost','127.0.0.1','.herokuapp.com']
 
 
 # Application definition
@@ -189,6 +189,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STRIPE_TEST_PUBLISHABLE_KEY=os.environ.get('STRIPE_TEST_PUBLISHABLE_KEY')
 STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')
 
+#production
 if ENVIRONMENT == 'production':
     SECURE_BROWSER_XSS_FILTER = True
     X_FRAME_OPTIONS = 'DENY'
@@ -199,6 +200,7 @@ if ENVIRONMENT == 'production':
     SECURE_CONTENT_TYPE_NOSNIFF = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Heroku
 import dj_database_url
