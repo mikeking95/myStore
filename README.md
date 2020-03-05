@@ -18,6 +18,7 @@ Goals, Learning targets:
      - Implement Amazon S3 Bucket for images (media)
      - CDN (s3) for static assets
      Third Party modules worth exploring further:
+       - django-storages (CDN/s3)
        - django-admin-honeypot for production
        - *django-two-factor-auth : Maybe
        - easy-thumnails* (multiple image sizes)
