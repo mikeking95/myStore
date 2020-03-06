@@ -8,3 +8,6 @@ class AboutPageView(TemplateView):
 
 class RecipesPageView(TemplateView):
     template_name = 'recipes.html'
+
+class newPageView(TemplateView):
+    template_name = 'dev_home.html'
