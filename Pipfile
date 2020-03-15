@@ -17,6 +17,8 @@ django-debug-toolbar = "*"
 whitenoise = "*"
 gunicorn = "*"
 dj-database-url = "*"
+django-taggit = "*"
+djangorestframework = "*"
 
 [requires]
 python_version = "3.7"
