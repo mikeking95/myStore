@@ -1,0 +1,18 @@
+{% extends 'shopbase.html' %}
+
+{% block title %}Products{% endblock title %}
+
+{% block content %}
+<div class="row mb-5">
+
+    <a href="{% url 'orders' %}" class="btn btn-success">Purchase All</a>
+</div>
+
+
+{% for product in product_list %}
+<div>
+    <h2><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h2>
+</div>
+{% endfor %}
+{% endblock content %}
+

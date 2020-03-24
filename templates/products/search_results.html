@@ -1,0 +1,20 @@
+{% extends 'shopbase.html' %}
+
+{% block title %}Search{% endblock title %}
+
+{% block content %}
+<h1>Search Results</h1>
+<form>
+    <input type="text" name="q" id="search" />
+   
+       
+    
+{% for product in product_list %}
+<div>
+    <h3><a href="{{ product.get_absolute_url }}">{{ product.title }}</a></h3>
+    <p>SKU: {{ product.sku }}</p>
+    <p>Price: ${{ product.price }}</p>
+</div>
+{% endfor %}
+{% endblock content %}
+<script src="//js.klevu.com/klevu-js-v2/2.0/klevu_debug.js"></script>

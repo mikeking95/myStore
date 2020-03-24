@@ -6,3 +6,8 @@ staticfiles/
 .vscode/
 dev/
 /.dev*
+mydatabase*
+*.pyc
+static/
+media/
+db.sqlite3*

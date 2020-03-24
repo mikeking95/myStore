@@ -1,4 +1,4 @@
-{% extends '_base.html' %}
+{% extends 'shopbase.html' %}
 
 {% block title %}Books{% endblock title %}
 
@@ -6,10 +6,22 @@
 {% if not perms.products.special_status %}
 <a href="{% url 'orders' %}" class="btn btn-success">Purchase All Books</a>
 {% endif %}
+
+{% if user.is_authenticated %}
 {% for book in book_list %}
+<div class="card-deck">
+    <div class="card-img-top">
+        <img src="{{ book.image.url }}" alt="{{book.title}}" />
+        <div class="card-body">
+            <p>{{ book.title }}</p>
+            <p>{{ book.author }}</p>
+            <p>{{ book.price }}</p>
+        </div>
+    </div>
+</div>
 <div>
     <h2><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h2>
 </div>
 {% endfor %}
+{% endif %}
 {% endblock content %}
-

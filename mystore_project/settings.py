@@ -9,11 +9,11 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-import environ
 import os
 import socket
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
+
 #django-debug-toolbar
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS = [ip[:-1] + "1" for ip in ips]
@@ -40,17 +40,24 @@ ALLOWED_HOSTS = ['https://safe-brook-10558.herokuapp.com','localhost','127.0.0.1
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
+       
+    # Third-Party
+    'crispy_forms',
     'django.contrib.sessions',
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    # Third-Party
-    'crispy_forms',
-    'allauth',
-    'allauth.account',
+    'rest_framework',
+    'taggit',
+    'django_extensions',
     'debug_toolbar',
 
     # Local
@@ -83,7 +90,7 @@ ROOT_URLCONF = 'mystore_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.normpath(os.path.join(BASE_DIR, 'templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,6 +98,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -102,17 +110,22 @@ WSGI_APPLICATION = 'mystore_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgres',
+#         'HOST': 'db',
+#         'PORT': 5432
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': 5432
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -152,7 +165,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -173,6 +186,8 @@ AUTHENTICATION_BACKENDS = (
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_SESSION_REMEMBER = True
+
+
 
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -202,7 +217,7 @@ if ENVIRONMENT == 'production':
     CSRF_COOKIE_SECURE = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+
 # Heroku
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)

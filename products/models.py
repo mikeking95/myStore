@@ -43,3 +43,36 @@ class Review(models.Model):
 
     def __str__(self):
         return self.review
+
+class Product(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False)
+
+    sku = models.CharField(max_length=100)
+    itemGroupId = models.CharField(max_length=200, blank=True)
+    url = models.URLField(name="base_url", blank=True)
+    name = models.CharField(max_length=200, blank=True)
+    image = models.ImageField(upload_to='products/', height_field=None, width_field=None, blank=True)
+    startPrice = models.DecimalField(max_digits=8,decimal_places=2, blank=True)
+    toPrice = models.DecimalField(max_digits=8,decimal_places=2, blank=True)
+    price = models.CharField(max_length=200)
+    salePrice = models.DecimalField(max_digits=8,decimal_places=2, blank=True)
+    currency = models.CharField(max_length=10)
+    discount = models.FloatField(blank=True, default=0)
+    shortDesc = models.CharField(max_length=200, blank=True)
+    desc = models.TextField(blank=True, default="Description goes here")
+    category = models.CharField(max_length=200,blank=True)
+    listCategory = models.CharField(max_length=200, blank=True)
+    other = models.CharField(max_length=200, blank=True)
+    otherAttributeToIndex = models.CharField(max_length=200, blank=True)
+    inStock = models.CharField(max_length=200, default=True)
+    rating = models.PositiveIntegerField(blank=True)
+    customerReview = models.CharField(max_length=200, blank=True)
+   
+        
+    def __str__(self):
+        return self.sku
+    
+

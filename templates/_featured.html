@@ -1,0 +1,30 @@
+{% block featured %}
+<div class="container">
+    <div class="row">
+
+
+
+
+    
+<div class="card-deck">
+{% for product in featured_list %}
+
+        <div class="card col-sm">
+            <img class="card-img-top" src="{{featured.image}}" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title"><a>{{featured.name}}</a></h4>
+                <p class="card-text">{{featured.desc}}</p>
+                <a href="#" class="btn btn-primary">Button</a>
+            </div>
+        </div>
+        {% endfor %}
+        
+    </div>
+        
+
+</div>
+</div>
+
+
+{% endblock featured %}
+

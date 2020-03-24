@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}MyStore{% endblock title%}</title>
+    <title>{% block title %}Base - Home{% endblock title%}</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts Roboto -->
@@ -17,14 +17,14 @@
     <!-- Your custom styles (optional) -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% block css %}
-    {% endblock css %}
+   {% block css %}
+   {% endblock css %}
 </head>
 
 <body>
     <!-- Start your project here-->
-    <div id="wrappy" style="height: 100vh">
-        {% include 'partials/navbar.html' %}
+    
+    <div id="container wrappy" style="height: 100vh">
         {% block content %}
         {% endblock content %}
     </div>

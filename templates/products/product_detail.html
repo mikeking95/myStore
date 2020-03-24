@@ -1,0 +1,36 @@
+{% extends '_base.html' %}
+
+{% block title %}Product Detail Page{% endblock title %}
+
+{% block content %}
+
+<div class="product-detail">
+    {% if product.image %}
+    <img class="img-responsive" src="{{ product.image.url }}" alt="{{ product.name }}">    
+    {% endif %}
+    <h2><a href="#">{{ product.title }}</a></h2>
+
+    <div>    
+    <ul>
+       <p>{{ product.title }}</p>
+       <p>{{ product.name }}</p>
+       <p>{{ product.sku }}</p>
+       <p>{{ product.price }}</p>
+       <p>{{ product.salePrice }}</p>
+       <p>{{ product.category }}</p>
+       <p>{{ product.listCategory }}</p>
+       <p>{{ product.date_added }}</p>
+       <p>{{ product.image }}</p>
+       <p>{{ product.discount }}</p>
+       <p>{{ product.InStock }}</p>
+       <p>{{ product.description }}</p>
+       <p>{{ product.keywords }}</p>
+       <p>{{ product.shortDesc }}</p>
+       <p>{{ product.manufacturer }}</p>
+       <p>{{ product.links }}</p>
+       <p>{{ product.options }}</p>
+    </ul>
+
+    </div>
+    </div>
+{% endblock content %}

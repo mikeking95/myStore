@@ -1,4 +1,4 @@
-{% extends '_base.html' %}
+{% extends 'shopbase.html' %}
 
 {% block title %}{{ book.title }}{% endblock title %}
 
@@ -7,7 +7,7 @@
     {% if book.cover %}
     <img class="bookcover" src="{{ book.cover.url }}" alt="{{ book.title }}">
     {% endif %}
-    <h2><a href="">{{ book.title }}</a></h2>
+    <h2><a href="#">{{ book.title }}</a></h2>
     <p>Author: {{ book.author }}</p>
     <p>Price: {{ book.price }}</p>
     <div>
@@ -17,8 +17,11 @@
             {% for review in book.reviews.all %}
             <li>{{ review.review }} ({{ review.author }})</li>
             {% endfor %}
+
+        {% else %}
+        <div><p>Empty </p></div>
+        {% endif %}
         </ul>
     </div>
-    {% endif %}
 </div>
 {% endblock content %}
