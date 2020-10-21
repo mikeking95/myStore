@@ -43,3 +43,16 @@ class Review(models.Model):
 
     def __str__(self):
         return self.review
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    sku = models.CharField(max_length=50)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+    # Category
+    # Subcategory
+    # Image [MtM]
+    # tags
+    
+    def __str__(self):
+        return self.sku
+
